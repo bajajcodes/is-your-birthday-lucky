@@ -4,25 +4,24 @@ const checkBtn = document.getElementById("lucky-check");
 const checkMessage = document.getElementById("lucky-message");
 const luckyNumberLabel = document.getElementById("labLN");
 
-// function toggleLuckyNumber(value){
-//     luckyNumberLabel.style.display = value;
-//     fab_number.style.display = value;
-// }
-
-// function toggleCheckBtn(value){
-//     checkBtn.style.display = value;
-// }
+function isFloat(value){
+    let n = value;
+    let res = n % 1 !== 0; //Number(n) === n &&
+    if(!res){
+        return false;
+    }
+    return true;
+}
 
 function message(msg){
     checkMessage.innerText = msg;
 }
 
 function checkDateOfBirth(dob){
-    message("Enter your date of birth.");
     if(!dob){
+        message("Enter your date of birth.");
         return false;
     }
-    // toggleLuckyNumber("block");
     return true;
 }
 
@@ -33,8 +32,13 @@ function checkLuckyNumber(luckyNumber){
         }else if(isNaN(luckyNumber)){
             message("Lucky number cannot be words.");
             return false;
+        }else if(luckyNumber < 0){
+            message("Lucky number cannot be negative number.");
+            return false;
+        }else if(isFloat(luckyNumber)){
+            message("Lucky number cannot be floating-point number.")
+            return false;
         }
-        // toggleCheckBtn("block");
         return true;
 }
 
@@ -43,9 +47,7 @@ function calculateDOBSum(dob){
         dob = dob.replaceAll("-","");
         let sum = 0;
         for(let xi = 0; xi<dob.length; ++xi){
-            // console.log(dob.charAt(xi));
             sum += Number(dob.charAt(xi));
-            // console.log(sum);
         }
         return sum;
 }
@@ -69,7 +71,7 @@ function isYourBirthdayLucky(){
 
     console.log({birthDate},{luckyNumber});
     
-    if(checkDateOfBirth(birthDate) && checkLuckyNumber(luckyNumber)){
+    if( (checkDateOfBirth(birthDate)) && (checkLuckyNumber(luckyNumber)) ){
             message("");
             console.log("pass1 cleared");
 
@@ -83,6 +85,4 @@ function isYourBirthdayLucky(){
     }
 }
 
-// toggleLuckyNumber("none");
-// toggleCheckBtn("none");
 checkBtn.addEventListener("click",isYourBirthdayLucky);

@@ -23,7 +23,7 @@
 
 <br>
 
-> <p id="processing"><strong>Processing:</strong><ul><li>Get date of birth(dob) from the user and check for not empty and partial, using function <strong>checkDateOfBirth<strong>, if correct then move to next to lucky number input function.</li><li>Get lucky number from user, using function <strong>checkLuckyNumber</strong> which checks for input constraints.</li><li>After that function <strong>isYourBirthdayLucky</strong> computes sum of user date of birth using function <strong>calculateDOBSum</strong> and then modulo operator is applied on previous function output and lucky number as: <pre>sum % luckyNumber</pre></li><li>If remainder(r) is zero then user birthday is lucky or if remainder is not zero then birthday is not lucky. Then user is informed with messaged based on outcome.</li>
+> <p id="processing"><strong>Processing:</strong><ul><li>Get date of birth(dob) from the user and check for not empty and partial, using function <strong>checkDateOfBirth</strong>, if correct then move to next to lucky number input function.</li><li>Get lucky number from user, using function <strong>checkLuckyNumber</strong> which checks for input constraints.</li><li>After that function <strong>isYourBirthdayLucky</strong> computes sum of user date of birth using function <strong>calculateDOBSum</strong> and then modulo operator is applied on previous function output and lucky number as: <pre>sum % luckyNumber</pre></li><li>If remainder(r) is zero then user birthday is lucky or if remainder is not zero then birthday is not lucky. Then user is informed with messaged based on outcome.</li>
 </ul>
 </p>
 
